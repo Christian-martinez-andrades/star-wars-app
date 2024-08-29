@@ -10,7 +10,7 @@ import { TranslationService } from './services/translation.service';
 export class AppComponent {
   title = 'star-wars-app';
 
-  currentLanguage = localStorage.getItem('language');
+  currentLanguage = localStorage.getItem('language') ? localStorage.getItem('language') : 'en' ;
   constructor(private translationService: TranslationService) { }
 
   ngOnInit() {

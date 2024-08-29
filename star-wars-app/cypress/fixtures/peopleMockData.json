@@ -1,0 +1,5 @@
+[
+  { "name": "Luke Skywalker", "created": "2020-01-01", "birth_year": "19BBY", "mass": "77", "gender": "male" },
+  { "name": "Darth Vader", "created": "2020-01-02", "birth_year": "41.9BBY", "mass": "136", "gender":"male" }
+  ]
+  
