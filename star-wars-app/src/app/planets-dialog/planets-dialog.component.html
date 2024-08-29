@@ -1,0 +1,88 @@
+<div mat-dialog-content>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <div class="details-header">
+                    <div class="details-left2">
+                        <h2>{{ data.name }}</h2>
+                        <p><strong>{{"CREATED" | translate}}:</strong> {{ data.created | date:'short' }}</p>
+                    </div>
+                    <div class="details-right2">
+                        <img class="character_img" title="Planet image not found" [src]="data.url | swapiImage">
+                    </div>
+                </div>
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="details-container">
+                <div class="details-left">
+                    <div class="details-main">
+                        <div class="details-row">
+                            <span class="label">{{"TERRAIN" |translate}}:</span>
+                            <span class="value">{{ data.terrain }}</span>
+                        </div>
+                        <div class="details-row">
+                            <span class="label">{{"CLIMATE" |translate}}:</span>
+                            <span class="value">{{ data.climate }}</span>
+                        </div>
+                        <div class="details-row">
+                            <span class="label">{{"GRAVITY" |translate}}:</span>
+                            <span class="value">{{ data.gravity }}</span>
+                        </div>
+                        <div class="details-row">
+                            <span class="label">{{"POPULATION" |translate}}:</span>
+                            <span class="value">{{ data.population }}</span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="details-right">
+                    <div class="details-row">
+                        <span class="label">{{"ROTATION_PERIOD" |translate}}:</span>
+                        <span class="value">{{ data.rotation_period }}</span>
+                    </div>
+                    <div class="details-row">
+                        <span class="label">{{"ORBITAL_PERIOD" |translate}}:</span>
+                        <span class="value">{{ data.orbital_period }}</span>
+                    </div>
+                    <div class="details-row">
+                        <span class="label">{{"SURFACE_WATER" |translate}}:</span>
+                        <span class="value">{{ data.surface_water }}</span>
+                    </div>
+                    <div class="details-row">
+                        <span class="label">{{"DIAMETER" |translate}}:</span>
+                        <span class="value">{{ data.diameter }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="details-grid">
+                <div class="details-category">
+                    <h3>{{"FILMS" |translate}}:</h3>
+                    <div class="details-items">
+                        <ng-container *ngFor="let film of data.films">
+                            <a [href]="film" target="_blank">
+                                <img [src]="film | swapiImage" [matTooltip]="film" class="item-image little-image" />
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="details-category">
+                    <h3>{{"RESIDENTS" |translate}}:</h3>
+                    <div class="details-items">
+                        <ng-container *ngFor="let resident of data.residents ">
+                            <a [href]="resident" target="_blank">
+                                <img [src]="resident |swapiImage" [matTooltip]="resident"
+                                    class="item-image little-image" />
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+
+            </div>
+        </mat-card-content>
+        <div mat-dialog-actions>
+            <button mat-button (click)="onClose()">{{"CLOSE" |translate}}</button>
+        </div>
+    </mat-card>
+</div>

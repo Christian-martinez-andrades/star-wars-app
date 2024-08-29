@@ -1,0 +1,32 @@
+export default {
+  "HOME": "Home",
+  "CHARACTERS": "Characters",
+  "PLANETS": "Planetas",
+  "FILTER_PLACEHOLDER": "Filter by name",
+  "NAME": "Name",
+  "CREATED": "Creation Date",
+  "BIRTH_YEAR": "Birth Year",
+  "MASS": "Mass",
+  "GENDER": "Gender",
+  "VIEW_DETAILS": "View details",
+  "HOMEWORLD": "Homeworld",
+  "EYE_COLOR": "Eye Color",
+  "HAIR_COLOR": "Hair Color",
+  "SKIN_COLOR": "Skin Color",
+  "FILMS": "Films",
+  "STARSHIPS": "Starships",
+  "VEHICLES": "Vehicles",
+  "SPECIES": "Species",
+  "CLOSE": "Close",
+
+  "CLIMATE": "Clima",
+  "TERRAIN": "Terreno",
+  "GRAVITY": "Gravedad",
+  "DIAMETER": "Diameter",
+  "ROTATION_PERIOD": "Rotation Period",
+  "ORBITAL_PERIOD": "Orbital Period",
+  "POPULATION": "Population",
+  "SURFACE_WATER": "Surface Water",
+  "RESIDENTS": "Resident"
+  
+}

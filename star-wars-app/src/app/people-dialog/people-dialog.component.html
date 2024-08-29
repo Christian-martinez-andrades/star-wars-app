@@ -1,0 +1,108 @@
+<div mat-dialog-content>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <div class="details-header">
+                    <div class="details-left2">
+                        <h2>{{ data.name }}</h2>
+                        <p><strong>{{"CREATED" | translate}}:</strong> {{ data.created | date:'short' }}</p>
+                    </div>
+                    <div class="details-right2">
+                        <img class="character_img" title="character_img" [src]="data.url | swapiImage">
+                    </div>
+                </div>
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="details-container">
+                <div class="details-left">
+                    <div class="details-main">
+                        <div class="details-row">
+                            <span class="label">{{"GENDER" |translate}}:</span>
+                            <mat-icon appGenderIcon="{{ data.gender }}"></mat-icon>
+                        </div>
+                        <div class="details-row">
+                            <span class="label">{{"BIRTH_YEAR" |translate}}:</span>
+                            <span class="value">{{ data.birth_year }}</span>
+                        </div>
+                        <div class="details-row">
+                            <span class="label">{{"MASS" |translate}}:</span>
+                            <span class="value">{{ data.mass }} kg</span>
+                        </div>
+                        <div class="details-row">
+                            <span class="label">{{"HOMEWORLD" |translate}}:</span>
+                            <div class="homeworld">
+                                <img class="little-image" [src]="data.homeworld | swapiImage" alt="Homeworld"
+                                    class="homeworld-image" />
+                                <mat-icon matTooltip="{{ data.homeworld }}">location_on</mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="details-right">
+                    <div class="details-row">
+                        <span class="label">{{"EYE_COLOR" |translate}}:</span>
+                        <span class="value">{{ data.eye_color }}</span>
+                    </div>
+                    <div class="details-row">
+                        <span class="label">{{"HAIR_COLOR" |translate}}:</span>
+                        <span class="value">{{ data.hair_color }}</span>
+                    </div>
+                    <div class="details-row">
+                        <span class="label">{{"SKIN_COLOR" |translate}}:</span>
+                        <span class="value">{{ data.skin_color }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="details-grid">
+                <div class="details-category">
+                    <h3>{{"FILMS" |translate}}:</h3>
+                    <div class="details-items">
+                        <ng-container *ngFor="let film of data.films">
+                            <a [href]="film" target="_blank">
+                                <img class="little-image item-image" [src]="film | swapiImage" [matTooltip]="film" />
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="details-category">
+                    <h3>{{"STARSHIPS" |translate}}:</h3>
+                    <div class="details-items">
+                        <ng-container *ngFor="let starship of data.starships">
+                            <a [href]="starship" target="_blank">
+                                <img class="little-image item-image" [src]="starship |swapiImage"
+                                    [matTooltip]="starship" />
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="details-category">
+                    <h3>{{"VEHICLES" |translate}}:</h3>
+                    <div class="details-items">
+                        <ng-container *ngFor="let vehicle of data.vehicles">
+                            <a [href]="vehicle" target="_blank">
+                                <img class="little-image item-image" [src]="vehicle |swapiImage"
+                                    [matTooltip]="vehicle" />
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="details-category">
+                    <h3>{{"SPECIES" |translate}}:</h3>
+                    <div class="details-items">
+                        <ng-container *ngFor="let species of data.species">
+                            <a [href]="species" target="_blank">
+                                <img class="little-image item-image" [src]="species |swapiImage"
+                                    [matTooltip]="species" />
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+        <div mat-dialog-actions>
+            <button mat-button (click)="onClose()">{{"CLOSE" |translate}}</button>
+        </div>
+    </mat-card>
+</div>

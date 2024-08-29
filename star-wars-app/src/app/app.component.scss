@@ -1,0 +1,16 @@
+.language-selector {
+    position: fixed; /* Fija el elemento en la ventana */
+    top: 0; /* Ajusta el espacio desde la parte superior */
+    right: 0; /* Ajusta el espacio desde el borde derecho */
+    padding: 10px; /* Espaciado alrededor del selector */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    background-color: black; /* Fondo blanco para asegurar visibilidad */
+    border-radius: 5px; /* Bordes redondeados */
+    
+    select {
+      border: 1px solid #ccc; /* Borde ligero para el selector */
+      padding: 5px; /* Espaciado interno del selector */
+      font-size: 16px; /* Tamaño de fuente del texto del selector */
+    }
+  }
+  

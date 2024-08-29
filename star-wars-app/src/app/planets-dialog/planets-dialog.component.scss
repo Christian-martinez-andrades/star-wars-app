@@ -1,0 +1,155 @@
+@import '../../styles.scss';
+
+.character_img {
+    width: 100px;
+}
+
+.little-image {
+    width: 100px;
+}
+
+mat-card {
+    background-color: #1e1e1e;
+    color: white;
+    border: 2px solid #FFC107;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+    border-radius: 10px;
+}
+
+mat-card-header {
+    background-color: #333333;
+    color: #FFC107;
+    text-align: center;
+    padding: 10px;
+
+}
+
+.mat-card-header-text {
+    width: 100% !important;
+}
+
+mat-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+}
+
+.details-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.details-left {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.details-left2 {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.details-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.details-right2 {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-right: 55px;
+}
+
+.details-header {
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+
+.details-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.details-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-weight: bold;
+    color: #FFC107;
+    width: 100px;
+    display: inline-block;
+}
+
+.value {
+    color: white;
+}
+
+.homeworld {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.homeworld-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.details-category {
+    margin-bottom: 20px;
+}
+
+.details-category h3 {
+    font-size: 1.2em;
+    color: #FFC107;
+    margin-bottom: 10px;
+}
+
+.details-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.item-image {
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+}
+
+button.mat-button {
+    background-color: #FF4C4C;
+    color: white;
+    border-radius: 5px;
+    font-size: 1em;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+}
+
+button.mat-button:hover {
+    background-color: #FF2C2C;
+}

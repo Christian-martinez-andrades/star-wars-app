@@ -1,0 +1,8 @@
+
+<div class="language-selector">
+  <select (change)="switchLanguage($event)" aria-label="Select Language"  [value]="currentLanguage">
+    <option value="en">English</option>
+    <option value="es">Español</option>
+  </select>
+</div>
+<router-outlet></router-outlet>

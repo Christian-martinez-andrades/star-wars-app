@@ -1,0 +1,244 @@
+@import '../../styles.scss';
+
+.planets-page {
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+}
+
+.page-header h1 {
+    font-size: 2.5em;
+    letter-spacing: 10px;
+    color: black;
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow:
+        3px 1px 0 $yellow,
+        1px 1px 0 $yellow,
+        -1px 1px 0 $yellow,
+        -1px 1px 0 $yellow,
+        -1px -1px 0 $yellow,
+        -1px -1px 0 $yellow,
+        1px -1px 0 $yellow,
+        1px -1px 0 $yellow;
+    line-height: 1.2;
+    display: inline-block;
+}
+
+button {
+    background-color: $blue;
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: darken($blue, 10%);
+}
+
+.planets-table-container {
+    width: 100%;
+    max-width: 1200px;
+    overflow-x: auto;
+}
+
+.planets-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: auto;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.mat-header-cell {
+    background: $low-yellow;
+    color: #FFFFFF;
+    padding: 15px;
+}
+
+.mat-cell {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid $blue;
+    color: #FFFFFF;
+}
+
+.mat-row:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.mat-row:hover {
+    background-color: rgba(0, 191, 255, 0.15);
+    color: #FFFFFF;
+}
+
+.paginator-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 1.5em;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+}
+
+.filter-container {
+    margin-bottom: 15px;
+}
+
+input[matInput] {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid white;
+    padding: 8px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+input[matInput]::placeholder {
+    color: gray;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: 'Star Jedi', sans-serif;
+    /* Asegúrate de que la fuente esté correctamente cargada */
+    font-size: 24px;
+    color: black;
+    /* Color del texto */
+    text-transform: uppercase;
+    text-shadow:
+        2px 1px 0 yellow,
+        1px 1px 0 yellow,
+        -1px 1px 0 yellow,
+        -1px -1px 0 yellow,
+        1px -1px 0 yellow,
+        1px -1px 0 yellow;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.home-button:hover {
+    transform: scale(1.1);
+    color: orange !important;
+}
+
+button:hover {
+    background-color: unset !important;
+}
+
+
+.planet-button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    /* Hace el botón redondo */
+    width: 100px;
+    /* Ajusta el tamaño del botón */
+    height: 100px;
+    /* Asegúrate de que la altura y el ancho sean iguales para un botón redondo */
+}
+
+.planet-button img {
+    width: 100%;
+    /* La imagen ocupará todo el botón */
+    height: 100%;
+    object-fit: cover;
+    /* Ajusta la imagen para que se ajuste al botón */
+    border-radius: 50%;
+    /* Hace la imagen redonda */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.planet-button:hover img {
+    filter: brightness(1.2);
+    /* Aumenta el brillo de la imagen al pasar el cursor */
+    transform: scale(1.1);
+    /* Opcional: aumenta ligeramente el tamaño de la imagen */
+}
+
+.planet-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: unset;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.planet-button:hover::after {
+    opacity: 1;
+}
+
+.planet-button:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+}
+
+img {
+    width: 7em !important;
+    height: 7em !important;
+
+
+}
+
+.mat-icon-button {
+    color: $yellow;
+    background-color: unset;
+    padding: 0;
+}
+
+.mat-icon-button:hover {
+    color: $blue;
+}
+
+.mat-icon {
+    font-size: 24px;
+}
+
+.details {
+    font-weight: bold !important;
+    color: black !important;
+}

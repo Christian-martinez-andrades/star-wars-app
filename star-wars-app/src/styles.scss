@@ -1,0 +1,164 @@
+$yellow: #FFFF00; // Amarillo
+$red: #FF4C4C; // Rojo
+$blue: #00BFFF; // Azul 
+$low-yellow: #FFC107; // amarillo más oscuro
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+@font-face {
+    font-family: 'StarJedi';
+    src: url('/assets/fonts/StarJedi.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Star Jedi', Arial, sans-serif;
+    background-color: black;
+    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'),
+        url('https://www.solarsystemscope.com/textures/download/8k_stars_milky_way.jpg');
+    background-repeat: repeat, no-repeat;
+    background-position: top left, center center;
+    background-size: auto, cover;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.nav-button {
+    width: 200px;
+    height: 200px;
+    background: black;
+    border: 3px solid $yellow;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.nav-button span {
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: $yellow;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 5px $yellow;
+}
+
+.nav-button.red-light:hover {
+    box-shadow: 0 0 30px $red;
+    border-color: $red;
+}
+
+.nav-button.blue-light:hover {
+    box-shadow: 0 0 30px $blue;
+    border-color: $blue;
+}
+
+.nav-button:hover {
+    transform: scale(1.1);
+}
+
+
+$paginator-text-color: #FFFFFF;
+$blue-diffused: rgba(0, 191, 255, 0.15);
+
+//  PAGINACIÓN 
+
+.paginator-container {
+    display: flex;
+    justify-content: flex-start !important;
+    margin-top: 20px;
+}
+
+.mat-tooltip {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    border-radius: 4px;
+    padding: 4px 8px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.mat-paginator {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+
+    .mat-paginator-page-size-label {
+        color: white;
+    }
+
+    .mat-paginator-range-label {
+        color: white;
+    }
+}
+
+.mat-sort-header-container {
+    color: black;
+    font-weight: bold !important;
+}
+
+.mat-sort-header-arrow {
+    color: black;
+}
+
+
+// BARRA SCROLL
+::-webkit-scrollbar {
+    width: 12px;
+    /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+    /* Color del fondo de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, rgba(0, 150, 255, 0.6) 0%, rgba(0, 200, 255, 0.8) 50%, rgba(50, 50, 50, 0.9) 100%);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 100, 180, 0.6);
+    /* Borde brillante alrededor de la barra */
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.8);
+    /* Efecto de iluminación para simular una espada láser */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, rgba(0, 200, 255, 0.7) 0%, rgba(0, 250, 255, 0.9) 50%, rgba(30, 30, 30, 1) 100%);
+    box-shadow: 0 0 15px rgba(0, 150, 255, 1), 0 0 20px rgba(0, 200, 255, 0.9);
+}
+
+/* Simulación del mango de la espada láser */
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-thumb:vertical-end {
+    background: linear-gradient(to bottom, grey 0%, grey 40%, transparent 100%);
+    box-shadow: none;
+}
+
+.mat-card-header-text {
+    width: 100% !important;
+}
+
+.mat-dialog-content {
+    max-height: 88vh;
+    margin-top: 8%;
+}
