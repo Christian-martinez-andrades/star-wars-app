@@ -33,9 +33,11 @@
                         <div class="details-row">
                             <span class="label">{{"HOMEWORLD" |translate}}:</span>
                             <div class="homeworld">
-                                <img class="little-image" [src]="data.homeworld | swapiImage" alt="Homeworld"
-                                    class="homeworld-image" />
-                                <mat-icon matTooltip="{{ data.homeworld }}">location_on</mat-icon>
+                                <a [href]="data.homeworld" target="_blank">
+                                    <img class="little-image" [matTooltip]="data.homeworld"
+                                        [src]="data.homeworld | swapiImage" alt="Homeworld" class="homeworld-image" />
+                                </a>
+
                             </div>
                         </div>
                     </div>

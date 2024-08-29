@@ -4,11 +4,14 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.mercedesbenz.starwars.starwarsback.domain.Planets;
 import com.mercedesbenz.starwars.starwarsback.repository.PlanetsRepository;
+import com.mercedesbenz.starwars.starwarsback.sort.planets.PlanetsCreatedSortStrategy;
+import com.mercedesbenz.starwars.starwarsback.sort.planets.PlanetsNameSortStrategy;
 import com.mercedesbenz.starwars.starwarsback.sort.planets.PlanetsSortStrategyInterface;
 
 @Service
@@ -17,28 +20,44 @@ public class PlanetsService {
     @Autowired
     private PlanetsRepository planetsRepository;
 
-    private static final String SWAPI_PLANETS_URL = "https://swapi.dev/api/planets/";
+    @Value("${app.apidatasource.url}")
+    private String apidatasource;
+
+    private static final String SWAPI_PLANETS_URL = "/planets/";
 
     @Autowired
     private RestTemplate restTemplate;
 
-    public List<Planets> getAll() {
-        return this.planetsRepository.findAll();
-    }
-
     private PlanetsSortStrategyInterface sortStrategy;
 
-    public void setSortStrategy(PlanetsSortStrategyInterface sortStrategy) {
-        this.sortStrategy = sortStrategy;
+    public List<Planets> getAll(String sort, String order) {
+        List<Planets> planets = this.planetsRepository.findAll();
+        boolean direction = "asc".equalsIgnoreCase(order);
+        return getSortedPlanetsSelector(planets, sort, direction);
     }
 
-    public List<Planets> getSortedPlanets(List<Planets> planets, boolean ascending) {
+    private List<Planets> getSortedPlanetsSelector(List<Planets> people, String sortBy, boolean direction) {
+        switch (sortBy.toLowerCase()) {
+            case "name":
+                sortStrategy = new PlanetsNameSortStrategy();
+                break;
+            case "created":
+                sortStrategy = new PlanetsCreatedSortStrategy();
+                break;
+            default:
+                return people;
+        }
+
+        return getSortedPlanets(people, direction);
+    }
+
+    private List<Planets> getSortedPlanets(List<Planets> planets, boolean ascending) {
         return sortStrategy.sort(planets, ascending);
     }
 
     // MÉTODO PARA INSERTAR DATOS
     public void getAndSavePlanets() {
-        String nextUrl = SWAPI_PLANETS_URL;
+        String nextUrl = this.apidatasource + SWAPI_PLANETS_URL;
 
         while (nextUrl != null) {
             ApiResponse response = restTemplate.getForObject(nextUrl, ApiResponse.class);

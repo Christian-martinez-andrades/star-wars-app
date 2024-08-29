@@ -14,25 +14,25 @@
         <div class="filter-container">
             <input matInput (keyup)="applyFilter($event)" placeholder="{{'FILTER_PLACEHOLDER' |translate}}" />
         </div>
-        <table *ngIf="!isLoading" mat-table [dataSource]="dataSource" matSort class="planets-table">
+        <table matSort (matSortChange)="onSortChange($event)" mat-table [dataSource]="dataSource" class="planets-table">
             <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"NAME"|translate}} </th>
+                <th mat-header-cell *matHeaderCellDef class="details" mat-sort-header> {{"NAME"|translate}} </th>
                 <td mat-cell *matCellDef="let planet"> {{planet.name}} </td>
             </ng-container>
             <ng-container matColumnDef="created">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"CREATED" |translate}} </th>
+                <th mat-header-cell *matHeaderCellDef class="details" mat-sort-header> {{"CREATED" |translate}} </th>
                 <td mat-cell *matCellDef="let planet"> {{planet.created| date:'short'}} </td>
             </ng-container>
             <ng-container matColumnDef="climate">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"CLIMATE"|translate}} </th>
+                <th mat-header-cell *matHeaderCellDef class="details"> {{"CLIMATE"|translate}} </th>
                 <td mat-cell *matCellDef="let planet"> {{planet.climate}} </td>
             </ng-container>
             <ng-container matColumnDef="terrain">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"TERRAIN"|translate}}</th>
+                <th mat-header-cell *matHeaderCellDef class="details"> {{"TERRAIN"|translate}}</th>
                 <td mat-cell *matCellDef="let planet"> {{planet.terrain}} </td>
             </ng-container>
             <ng-container matColumnDef="gravity">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"GRAVITY"|translate}} </th>
+                <th mat-header-cell *matHeaderCellDef class="details"> {{"GRAVITY"|translate}} </th>
                 <td mat-cell *matCellDef="let planet"> {{planet.gravity}} </td>
             </ng-container>
 
@@ -50,7 +50,7 @@
         </table>
 
         <div class="paginator-container">
-            <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+            <mat-paginator [pageSize]="15" showFirstLastButtons></mat-paginator>
         </div>
     </div>
 </div>

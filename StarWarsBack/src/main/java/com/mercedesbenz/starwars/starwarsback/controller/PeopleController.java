@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mercedesbenz.starwars.starwarsback.domain.People;
@@ -22,10 +23,13 @@ public class PeopleController {
     @Autowired
     private PeopleService peopleService;
 
-    @GetMapping(value = "", produces = "application/json")
-    ResponseEntity<List<People>> getAll() {
-
-        return new ResponseEntity<>(this.peopleService.getAll(), HttpStatus.OK);
+    @GetMapping(value = "/", produces = "application/json")
+    public ResponseEntity<List<People>> getAll(
+        @RequestParam(value = "sort", defaultValue = "") String sort,
+        @RequestParam(value = "order", defaultValue = "") String order) {
+    
+        List<People> people = this.peopleService.getAll(sort, order);
+        return new ResponseEntity<>(people, HttpStatus.OK);
     }
 
 }

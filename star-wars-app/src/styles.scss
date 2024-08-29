@@ -4,6 +4,7 @@ $blue: #00BFFF; // Azul
 $low-yellow: #FFC107; // amarillo más oscuro
 
 @import '~@angular/material/theming';
+
 @include mat-core();
 
 @font-face {

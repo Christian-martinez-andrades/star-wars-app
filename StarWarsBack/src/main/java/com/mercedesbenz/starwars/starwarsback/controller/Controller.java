@@ -17,7 +17,7 @@ public class Controller {
     private final Logger logger = LoggerFactory.getLogger(Controller.class);
 
 
-    @GetMapping("")
+    @GetMapping("/")
     ResponseEntity<String> healthCheck() {
         return new ResponseEntity<String>("Health Check", HttpStatus.OK);
     }

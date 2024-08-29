@@ -4,17 +4,23 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.mercedesbenz.starwars.starwarsback.domain.People;
 import com.mercedesbenz.starwars.starwarsback.repository.PeopleRepository;
+import com.mercedesbenz.starwars.starwarsback.sort.people.PeopleCreatedSortStrategy;
+import com.mercedesbenz.starwars.starwarsback.sort.people.PeopleNameSortStrategy;
 import com.mercedesbenz.starwars.starwarsback.sort.people.PeopleSortStrategyInterface;
 
 @Service
 public class PeopleService {
 
-    private static final String SWAPI_PEOPLE_URL = "https://swapi.dev/api/people/";
+    @Value("${app.apidatasource.url}")
+    private String apidatasource;
+
+    private static final String SWAPI_PEOPLE_URL = "/people/";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -22,23 +28,36 @@ public class PeopleService {
     @Autowired
     private PeopleRepository peopleRepository;
 
-    public List<People> getAll() {
-        return this.peopleRepository.findAll();
-    }
-
     private PeopleSortStrategyInterface sortStrategy;
 
-    public void setSortStrategy(PeopleSortStrategyInterface sortStrategy) {
-        this.sortStrategy = sortStrategy;
+    public List<People> getAll(String sort, String order) {
+        List<People> people = this.peopleRepository.findAll();
+        boolean direction = "asc".equalsIgnoreCase(order);
+        return getSortedPeopleSelector(people, sort, direction);
     }
 
-    public List<People> getSortedPeople(List<People> people, boolean ascending) {
+    private List<People> getSortedPeopleSelector(List<People> people, String sortBy, boolean direction) {
+        switch (sortBy.toLowerCase()) {
+            case "name":
+                sortStrategy = new PeopleNameSortStrategy();
+                break;
+            case "created":
+                sortStrategy = new PeopleCreatedSortStrategy();
+                break;
+            default:
+                return people;
+        }
+
+        return getSortedPeople(people, direction);
+    }
+
+    private List<People> getSortedPeople(List<People> people, boolean ascending) {
         return sortStrategy.sort(people, ascending);
     }
 
     // MÉTODO PARA INSERTAR DATOS
     public void getAndSavePeople() {
-        String nextUrl = SWAPI_PEOPLE_URL;
+        String nextUrl = this.apidatasource + SWAPI_PEOPLE_URL;
 
         while (nextUrl != null) {
             ApiResponse response = restTemplate.getForObject(nextUrl, ApiResponse.class);
