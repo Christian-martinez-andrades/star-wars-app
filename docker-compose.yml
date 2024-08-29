@@ -10,7 +10,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=DOCKER
     ports:
-      - "8080:8080"
+      - "8081:8081"
  
   frontend:
     build:
