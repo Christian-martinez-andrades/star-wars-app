@@ -33,6 +33,7 @@ public class PeopleService {
     public List<People> getAll(String sort, String order) {
         List<People> people = this.peopleRepository.findAll();
         boolean direction = "asc".equalsIgnoreCase(order);
+        
         return getSortedPeopleSelector(people, sort, direction);
     }
 

@@ -2,6 +2,8 @@ $yellow: #FFFF00; // Amarillo
 $red: #FF4C4C; // Rojo
 $blue: #00BFFF; // Azul 
 $low-yellow: #FFC107; // amarillo más oscuro
+$paginator-text-color: #FFFFFF;
+$blue-diffused: rgba(0, 191, 255, 0.15);
 
 @import '~@angular/material/theming';
 
@@ -27,7 +29,6 @@ html {
     background-repeat: repeat, no-repeat;
     background-position: top left, center center;
     background-size: auto, cover;
-
 }
 
 * {
@@ -77,10 +78,6 @@ html {
     transform: scale(1.1);
 }
 
-
-$paginator-text-color: #FFFFFF;
-$blue-diffused: rgba(0, 191, 255, 0.15);
-
 //  PAGINACIÓN 
 
 .paginator-container {
@@ -122,25 +119,20 @@ $blue-diffused: rgba(0, 191, 255, 0.15);
     color: black;
 }
 
-
 // BARRA SCROLL
 ::-webkit-scrollbar {
     width: 12px;
-    /* Ancho de la barra de desplazamiento */
 }
 
 ::-webkit-scrollbar-track {
     background: black;
-    /* Color del fondo de la barra de desplazamiento */
 }
 
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, rgba(0, 150, 255, 0.6) 0%, rgba(0, 200, 255, 0.8) 50%, rgba(50, 50, 50, 0.9) 100%);
     border-radius: 10px;
     border: 2px solid rgba(0, 100, 180, 0.6);
-    /* Borde brillante alrededor de la barra */
     box-shadow: 0 0 10px rgba(0, 150, 255, 0.8);
-    /* Efecto de iluminación para simular una espada láser */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -148,7 +140,6 @@ $blue-diffused: rgba(0, 191, 255, 0.15);
     box-shadow: 0 0 15px rgba(0, 150, 255, 1), 0 0 20px rgba(0, 200, 255, 0.9);
 }
 
-/* Simulación del mango de la espada láser */
 ::-webkit-scrollbar-corner,
 ::-webkit-scrollbar-thumb:vertical-end {
     background: linear-gradient(to bottom, grey 0%, grey 40%, transparent 100%);

@@ -28,7 +28,6 @@ export class SwapiImagePipe implements PipeTransform {
       imageUrl = `${baseUrl}films/${id}.jpg`;
     }
 
-
     return imageUrl;
   }
 

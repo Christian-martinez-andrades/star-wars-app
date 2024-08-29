@@ -101,7 +101,6 @@ describe('PeopleComponent', () => {
     expect(tableElement.textContent).toContain('Darth Vader');
     expect(tableElement.textContent).toContain('Luke Skywalker');
 
-
     component.applyFilter({ target: { value: 'Darth' } } as unknown as Event);
     fixture.detectChanges();
 

@@ -33,6 +33,7 @@ public class PlanetsService {
     public List<Planets> getAll(String sort, String order) {
         List<Planets> planets = this.planetsRepository.findAll();
         boolean direction = "asc".equalsIgnoreCase(order);
+        
         return getSortedPlanetsSelector(planets, sort, direction);
     }
 

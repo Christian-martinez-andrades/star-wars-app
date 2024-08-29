@@ -13,5 +13,4 @@ export class PlanetsDialogComponent {
   onClose(): void {
     this.dialogRef.close();
   }
-
 }

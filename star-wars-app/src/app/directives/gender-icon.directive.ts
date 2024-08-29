@@ -6,11 +6,10 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 export class GenderIconDirective implements OnInit {
 
   @Input('appGenderIcon') set gender(value: string) {
-    // Asegurarse de que el valor sea uno de los tipos permitidos
     this._gender = value as 'male' | 'female' | 'n/a';
   }
 
-  private _gender: 'male' | 'female' | 'n/a' = 'n/a'; // Valor por defecto
+  private _gender: 'male' | 'female' | 'n/a' = 'n/a'; 
 
   private iconMap: { [key in 'male' | 'female' | 'n/a']: string } = {
     'male': '♂',

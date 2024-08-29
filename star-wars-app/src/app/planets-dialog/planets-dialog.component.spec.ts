@@ -8,7 +8,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { StarWarsService } from '../services/star-wars.service';
 import { PeopleDialogComponent } from '../people-dialog/people-dialog.component';
-import { of } from 'rxjs';
 import { SwapiImagePipe } from '../pipes/swapi-image.pipe';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
